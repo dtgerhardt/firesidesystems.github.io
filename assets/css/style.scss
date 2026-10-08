@@ -1,0 +1,200 @@
+---
+---
+
+// Define or override variables first
+// Breakpoints
+// $large-breakpoint: 120em;
+// $medium-breakpoint: 60em;
+
+// Headers
+$header-heading-color: #d7dee4;
+$header-bg-color: #ffffff;
+$header-bg-color-secondary: #ffffff;
+
+// Text
+$section-headings-color: #d7dee4;
+$body-text-color: #d7dee4;
+$body-link-color: #1e6bb8;
+$blockquote-text-color: #819198;
+
+// Code
+$code-bg-color: #f3f6fa;
+$code-text-color: #567482;
+
+// Borders
+$border-color: #dce6f0;
+$table-border-color: #e9ebec;
+$hr-border-color: #eff0f1;
+
+// IMPORT THE SITE THEME
+@import "{{ site.theme }}";
+
+// profile card for personnel
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 2.0rem;
+  margin: 1.5rem 0;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+/* Custom styles for the tagline */
+.project-tagline {
+  color: #ffffff;      /* Change to your preferred color (hex, rgb, etc.) */
+  font-size: 1.5rem;   /* Adjust size as needed (e.g., 20px, 1.5rem, 120%) */
+  margin-bottom: 0rem; /* Default is 2rem */
+}
+
+/* Semi-transparent white background for main content area */
+.main-content {
+  max-width: 56rem;
+
+  // ensure left/right gap between highlight and edge of screen
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 3rem); /* 1.5rem (24px) gap on both left and right edges */
+  box-sizing: border-box;
+
+  background: none;
+  background-color: rgba(50, 50, 50, 0.8); /* 80% opaque */
+  padding: 2rem;                                /* Spacing around the text */
+  border: 1px solid rgba(50, 50, 50, 0.8);
+  border-radius: 24px;                           /* Rounded edges */
+  padding-top: 1rem; /* Default desktop padding is 2rem top/bottom */
+  padding-bottom: 1.5rem;
+}
+
+/* Remove extra bottom margin from the last element inside the content */
+.main-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Apply the background image to the entire page */
+body {
+  background-image: url('{{ site.baseurl }}/assets/img/full-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps the background locked in place while scrolling */
+  background-color: rgba(0, 0, 0, 1);
+}
+
+/* Clear the default header background so the full-screen image shows through */
+.page-header { 
+  background-image: none;
+  background-color: transparent;
+  padding-bottom: 2rem; /* Default desktop padding is 5rem top/bottom */
+}
+
+/* CSS-Only Logo Implementation */
+.project-name {
+  /* Hide the theme's text title while preserving the container block */
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+
+  /* Inject your corporate logo asset */
+  background-image: url('{{ site.baseurl }}/assets/img/logo.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important; /* Locks structural aspect ratio */
+  
+  display: block !important;
+  margin: 0 auto 1rem auto !important;
+
+  /* Responsive Width & Height Scaling Breakpoints */
+  /* Mobile Display Dimensions (Default) */
+  width: 100% !important;
+  max-width: 320px !important; 
+  height: 110px !important;      /* Toggles vertical canvas clearance on mobile */
+}
+
+/* Tablet Display Dimensions */
+@media screen and (min-width: 30em) {
+  .project-name {
+    max-width: 460px !important;
+    height: 150px !important;
+  }
+}
+
+/* Desktop Display Dimensions */
+@media screen and (min-width: 64em) {
+  .project-name {
+    max-width: 600px !important;
+    height: 200px !important; /* Provides ample breathing room for desktop branding */
+  }
+}
+
+/* Flexbox container for side-by-side buttons */
+.cta-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+/* Individual CTA button styling */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none !important;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+
+  /* Primary Button Style (Solid) */
+  &.primary {
+    background-color: rgba(163, 0, 0, 0.7);
+    color: #ffffff !important;
+    // border: 1px solid #A30000;
+
+    &:hover {
+      background-color: rgba(163, 0, 0, 1);
+      // border-color: #rgba(163, 0, 0, 1);
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Secondary Button Style (Outlined) */
+  &.secondary {
+    background-color: transparent;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Mobile Stacking (< 600px) */
+@media screen and (max-width: 37.5em) {
+  .cta-button-group {
+    flex-direction: column;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+hr {
+  display: none;
+}
+
