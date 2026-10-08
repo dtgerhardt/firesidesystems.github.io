@@ -29,18 +29,40 @@ $hr-border-color: #eff0f1;
 // IMPORT THE SITE THEME
 @import "{{ site.theme }}";
 
-// profile card for personnel
-.profile-card {
+/* Responsive Profile/Headshot Layout */
+.profile-container {
   display: flex;
-  align-items: center;
-  gap: 2.0rem;
-  margin: 1.5rem 0;
+  flex-direction: row;        /* Side-by-side on desktop */
+  align-items: center;        /* Vertically align image and text */
+  gap: 2rem;                 /* Space between image and text */
+  margin: 2rem 0;
+  width: 100%;
+}
 
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.profile-headshot {
+  flex-shrink: 0;
+  width: 160px;               /* Adjust headshot size as needed */
+  height: 160px;
+  border-radius: 50%;         /* Circular crop */
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-bio {
+  flex: 1;
+}
+
+/* Mobile Stacking Breakpoint (< 768px) */
+@media screen and (max-width: 48em) {
+  .profile-container {
+    flex-direction: column;   /* Stacks image above text on mobile */
+    text-align: center;       /* Centers bio text when stacked */
+  }
+
+  .profile-headshot {
+    width: 140px;             /* Slightly smaller headshot on mobile */
+    height: 140px;
+    margin: 0 auto;
   }
 }
 
