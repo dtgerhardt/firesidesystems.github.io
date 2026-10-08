@@ -20,12 +20,10 @@
 
 title: Fireside Systems
 author: David Gerhardt, PhD
-repository: dtgerhardt/firesidesystems.github.io
 description: >- # this means to ignore newlines until "baseurl:"
   Practical Systems Engineering from Definition to Delivery
 baseurl: "" # the subpath of your site, e.g. /blog
-domain: firesidesystems.github.io
-url: https://firesidesystems.com # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://firesidesystems.com" # the base hostname & protocol for your site, e.g. http://example.com
 show_downloads: false
 github: 
   is_project_page: false
